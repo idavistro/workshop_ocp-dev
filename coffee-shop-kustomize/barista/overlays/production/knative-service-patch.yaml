@@ -1,0 +1,10 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: barista
+spec:
+  template:
+    spec:
+      containers:
+      - name: user-container
+        image: nexus-registry-nexus.apps.cluster-fc9tk.fc9tk.sandbox302.opentlc.com/user25-barista:prod-2022-03-22-17-34-45 

@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: s2i-build-
+spec:
+  taskRef:
+    kind: Task
+    name: s2i-binary
+  params:
+  - name: FROM_FILE
+    value: coffee-shop/target/coffee-shop-1.0-SNAPSHOT-runner.jar
+  - name: NAMESPACE
+    value: user25-dev-coffeeshop
+  - name: BUILDCONFIG
+    value: coffee-shop
+  workspaces:
+  - name: source
+    persistentVolumeClaim:
+      claimName: workspace-pvc
+ 

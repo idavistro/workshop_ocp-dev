@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: git-clone-
+spec:
+  taskRef:
+    kind: ClusterTask
+    name: git-clone
+  params:
+  - name: url
+    value: https://gitea.apps.cluster-fc9tk.fc9tk.sandbox302.opentlc.com/user25/coffee-shop-source
+  - name: revision
+    value: master
+  - name: deleteExisting
+    value: 'true'
+  workspaces:
+  - name: output
+    persistentVolumeClaim:
+      claimName: workspace-pvc
+ 

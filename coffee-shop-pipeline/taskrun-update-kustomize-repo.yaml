@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: update-kustomize-git-
+spec:
+  taskRef:
+    kind: Task
+    name: update-kustomize-repo
+  params:
+  - name: gitRepositoryUrl
+    value: https://gitea.apps.cluster-fc9tk.fc9tk.sandbox302.opentlc.com/user25/coffee-shop-kustomize.git
+  - name: gitRepositoryRevision
+    value: master
+  - name: gitPath
+    value: coffee-shop
+  - name: fileName
+    value: overlays/production/deployment-patches.yaml
+  - name: image
+    value: nexus-registry-nexus.apps.cluster-fc9tk.fc9tk.sandbox302.opentlc.com/user25-coffee-shop
+  - name: imageTag
+    value: prod-2022-03-24-23-10-33

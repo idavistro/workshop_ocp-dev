@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: tag-image-prod-
+spec:
+  taskRef:
+    kind: ClusterTask
+    name: openshift-client
+  params:
+  - name: SCRIPT
+    value: >-
+      oc tag
+      user25-dev-coffeeshop/coffee-shop:dev-2022-03-24-23-10-33
+      user25-dev-coffeeshop/coffee-shop:prod-2022-03-24-23-10-33 

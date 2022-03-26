@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: coffee-shop
+  namespace: user25-argocd
+spec:
+  destination:
+    namespace: user25-prod-coffeeshop
+    server: https://kubernetes.default.svc
+  project: coffee-shop
+  source:
+    path: coffee-shop/overlays/production
+    repoURL: https://gitea.apps.cluster-fc9tk.fc9tk.sandbox302.opentlc.com/user25/coffee-shop-kustomize.git
+    targetRevision: HEAD

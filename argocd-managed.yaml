@@ -1,0 +1,7 @@
+apiVersion: pfe.opentlc.com/v1
+kind: ArgoCDManaged
+metadata:
+  name: user25-prod-coffeeshop
+  namespace: user25-prod-coffeeshop
+spec:
+  argocdNamespace: user25-argocd
