@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: coffee-shop-pipeline
+  namespace: hd5f5-argocd
+spec:
+  destination:
+    namespace: hd5f5-pipeline
+    server: https://kubernetes.default.svc
+  project: coffee-shop
+  source:
+    path: ./coffee-shop-pipeline
+    repoURL: http://homework-gitea.gpte-hw-cicd.svc:3000/jgamboag-redhat.com-hd5f5/coffee-shop-final-lab.git
+    targetRevision: HEAD

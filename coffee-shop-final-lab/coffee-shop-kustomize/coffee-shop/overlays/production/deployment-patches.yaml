@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coffee-shop
+spec:
+  template:
+    spec:
+      containers:
+      - name: coffee-shop
+        image: homework-nexus-registry.apps.shared-na46.openshift.opentlc.com/hd5f5-coffee-shop:prod-2022-03-29-00-36-14
+

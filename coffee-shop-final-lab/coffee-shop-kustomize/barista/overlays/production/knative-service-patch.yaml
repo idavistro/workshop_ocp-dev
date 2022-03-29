@@ -1,0 +1,11 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: barista
+spec:
+  template:
+    spec:
+      containers:
+      - name: user-container
+        image: homework-nexus-registry.apps.shared-na46.openshift.opentlc.com/hd5f5-barista:prod-2022-03-29-00-47-48
+
